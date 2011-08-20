@@ -59,7 +59,7 @@ public class UpdateService {
 
             content = content.replaceAll("\n", "");
             content = content.replaceAll("\r", "");
-            log.debug("Content: {}", content);
+            //log.debug("Content: {}", content);
 
             Matcher m = pattern.matcher(content);
             while (m.find()) {

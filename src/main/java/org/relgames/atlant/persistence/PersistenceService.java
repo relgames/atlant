@@ -12,7 +12,11 @@ public class PersistenceService {
     private TreeSet<Expert> experts = new TreeSet<Expert>(new Comparator<Expert>() {
         @Override
         public int compare(Expert o1, Expert o2) {
-            return o2.getVotes() - o1.getVotes();
+            if (o1.getVotes() == o2.getVotes()) {
+                return o1.getId().compareTo(o2.getId());
+            } else {
+                return o2.getVotes() - o1.getVotes();
+            }
         }
     });
 
