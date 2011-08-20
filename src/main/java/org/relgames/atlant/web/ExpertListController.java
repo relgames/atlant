@@ -1,4 +1,4 @@
-package org.relgames.atlant;
+package org.relgames.atlant.web;
 
 import org.relgames.atlant.persistence.PersistenceService;
 import org.springframework.beans.factory.annotation.Autowired;

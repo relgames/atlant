@@ -3,7 +3,7 @@ package org.relgames.atlant.persistence;
 /**
  * @author relgames
  */
-public class Expert implements Comparable<Expert>{
+public class Expert {
     private String id;
     private String name;
     private int votes;
@@ -33,12 +33,6 @@ public class Expert implements Comparable<Expert>{
         return id != null ? id.hashCode() : 0;
     }
 
-
-    @Override
-    public int compareTo(Expert expert) {
-        return this.votes - expert.votes;
-    }
-
     public String getId() {
         return id;
     }
@@ -53,5 +47,15 @@ public class Expert implements Comparable<Expert>{
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "Expert{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", votes=" + votes +
+                ", imageUrl='" + imageUrl + '\'' +
+                '}';
     }
 }
