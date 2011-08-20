@@ -14,7 +14,7 @@
 
 <table>
     <thead>
-        <tr><td>Место</td><td>Фото</td><td>Имя</td><td>Голоса</td></tr>
+        <tr><td>Место</td><td>Фото</td><td>Имя</td><td>Голоса</td><td>;)</td></tr>
     </thead>
     <#list experts as expert>
     <tr>
@@ -22,6 +22,7 @@
         <td><img src="${expert.imageUrl}" alt="${expert.name}"/></td>
         <td>${expert.name}</td>
         <td>${expert.votes}</td>
+        <td><a href="http://tut.by/questionary/scripts/helper.php?cmd=vote&questionaryId=2&scheduleId=3&questionId=${expert.id}&value=1">Голосовать</a></td>
     </tr>
     </#list>
     </table>
