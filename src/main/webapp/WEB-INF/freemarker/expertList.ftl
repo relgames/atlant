@@ -10,6 +10,13 @@
 </head>
 <body>
 <#list experts as expert>
-    <p>${expert.name}</p>
+    <table>
+        <tr>
+            <td><img src="${expert.imageUrl}" alt="${expert.name}"/></td>
+            <td>${expert.id}</td>
+            <td>${expert.name}</td>
+            <td>${expert.votes}</td>
+        </tr>
+    </table>
 </#list></body>
 </html>
