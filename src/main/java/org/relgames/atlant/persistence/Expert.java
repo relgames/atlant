@@ -23,7 +23,7 @@ public class Expert {
 
         Expert expert = (Expert) o;
 
-        return !(id != null ? !id.equals(expert.imageUrl) : expert.id != null);
+        return id != null ? id.equals(expert.id) : expert.id==null;
     }
 
     @Override
