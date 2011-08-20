@@ -3,6 +3,7 @@ package org.relgames.atlant;
 import org.relgames.atlant.persistence.PersistenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -15,7 +16,8 @@ public class ExpertListController {
     private PersistenceService persistenceService;
 
     @RequestMapping("/*")
-    public String doRequest() {
+    public String doRequest(Model model) {
+        model.addAttribute("experts", persistenceService.getExperts());
         return "expertList";
     }
 }

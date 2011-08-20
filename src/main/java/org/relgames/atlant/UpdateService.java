@@ -18,9 +18,10 @@ public class UpdateService {
     @Autowired
     private PersistenceService persistenceService;
 
-    @Scheduled(cron = "0 */5 * * * ?")
+    //@Scheduled(cron = "* */5 * * * ?")
+    @Scheduled(fixedDelay = 5 * 60 * 1000) // 5 minutes
     public void update() {
         log.info("Updating...");
-        persistenceService.addExpert(new Expert("1", "444", 20, ""));
+        persistenceService.addExpert(new Expert("1", "Vasia", 20, ""));
     }
 }

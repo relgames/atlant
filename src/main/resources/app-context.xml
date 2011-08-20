@@ -6,10 +6,16 @@
 
     <context:component-scan base-package="org.relgames"/>
     <task:annotation-driven/>
-    <!--
-        <task:scheduled-tasks>
-            <task:scheduled ref="requestService" method="doRequest" cron="0 0 */6 * * *"/>
-        </task:scheduled-tasks>
-    -->
 
+    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/freemarker/"/>
+    </bean>
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="cache" value="true"/>
+        <property name="prefix" value=""/>
+        <property name="suffix" value=".ftl"/>
+        <property name="exposeSpringMacroHelpers" value="true"/>
+        <property name="contentType" value="text/html;charset=UTF-8"/>
+    </bean>
 </beans>
