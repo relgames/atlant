@@ -31,4 +31,15 @@ public class PersistenceService {
     public int getSize() {
         return experts.size();
     }
+
+    private Date lastUpdate;
+
+    public void setLastUpdate(Date lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public Date getLastUpdate() {
+        return lastUpdate;
+    }
+
 }

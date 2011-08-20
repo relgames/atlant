@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.net.URL;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -58,12 +59,12 @@ public class UpdateService {
 
             content = content.replaceAll("\n", "");
             content = content.replaceAll("\r", "");
-            //log.debug("Content: {}", content);
+            log.debug("Content: {}", content);
 
             Matcher m = pattern.matcher(content);
             while (m.find()) {
                 final int size = persistenceService.getSize();
-                final Expert expert = new Expert(m.group(2), m.group(1), Integer.parseInt(m.group(3)), "");
+                final Expert expert = new Expert(m.group(3), m.group(1), Integer.parseInt(m.group(4)), m.group(2));
                 persistenceService.addExpert(expert);
                 if (persistenceService.getSize() != size) {
                     log.info("Found new expert: {}", expert);
@@ -74,12 +75,13 @@ public class UpdateService {
             log.error("JSON error: " + pe.toString(), pe);
             throw pe;
         }
+        persistenceService.setLastUpdate(new Date());
     }
 
     @Value("${loopCount}")
     private int loopCount;
 
-    @Scheduled(fixedDelay = 5 * 60 * 1000) // 5 minutes
+    @Scheduled(fixedDelay = 30 * 60 * 1000) // 30 minutes
     public void updateLoop() throws Exception {
         for (int i=1; i<=loopCount; i++) {
             log.info("Iteration {} of {}", i, loopCount);

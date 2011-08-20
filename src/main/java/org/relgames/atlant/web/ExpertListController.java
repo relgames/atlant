@@ -18,6 +18,7 @@ public class ExpertListController {
     @RequestMapping("/*")
     public String doRequest(Model model) {
         model.addAttribute("experts", persistenceService.getExperts());
+        model.addAttribute("lastUpdate", persistenceService.getLastUpdate());
         return "expertList";
     }
 }
