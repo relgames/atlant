@@ -16,21 +16,6 @@ public class Expert {
         this.imageUrl = imageUrl;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Expert expert = (Expert) o;
-
-        return id != null ? id.equals(expert.id) : expert.id==null;
-    }
-
-    @Override
-    public int hashCode() {
-        return id != null ? id.hashCode() : 0;
-    }
-
     public String getId() {
         return id;
     }
